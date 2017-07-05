@@ -40,7 +40,7 @@ public class ViewAllCommand extends Command {
     
     @Override
     public boolean isMutating() {
-    	return true;
+    	return false;
     }
     
 }
