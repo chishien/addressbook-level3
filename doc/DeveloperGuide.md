@@ -43,8 +43,11 @@ Priority | As a ... | I want to ... | So that I can...
 -------- | :-------- | :--------- | :-----------
 `* * *` | new user | see usage instructions | refer to instructions when I forget how to use the App
 `* * *` | user | add a new person |
+`* * *` | user | view address book | list of all persons in my address book
 `* * *` | user | delete a person | remove entries that I no longer need
+`* * *` | user | undo last action | revert last made change that I made by mistake
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | find all persons by tags/keywords | locate details of persons with same tag/keyword
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
 
@@ -52,6 +55,33 @@ Priority | As a ... | I want to ... | So that I can...
 ## Appendix B : Use Cases
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+
+#### Use case: Rename tag
+
+**MSS**
+
+1. User requests to rename a tag
+2. AddressBook shows a list of persons with the same tag
+3. AddressBook requests confirmation with user for the renaming operation
+4. User confirms the renaming operation
+5. AddressBook renames the tag <br>
+Use case ends.
+
+**Extensions**
+
+1a. Old tag name does not exist in AddressBook
+
+> 1a1. AddressBook shows an error message <br>
+  Use case ends
+  
+1b. New tag name already exists in AddressBook
+
+> 1b1. AddressBook shows an error message <br>
+  Use case ends
+
+4a. User does not confirm renaming operation
+
+> Use case ends
 
 #### Use case: Delete person
 
@@ -80,6 +110,8 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should not require more than 5 seconds to respond to user requests
+6. Should come with a UserGuide for easy referencing of commands
 
 ## Appendix D : Glossary
 
